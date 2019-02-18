@@ -1,0 +1,35 @@
+<template>
+  <ui5-li-custom :data-key="datakey" :selected="todo.done">
+    <div class="li-content">
+      <span>{{todo.text}} - finish before: {{todo.deadline}}</span>
+      <div class="li-content-actions">
+        <ui5-button class="edit-btn" @press="onEditPress">Edit</ui5-button>
+        <ui5-button type="Negative" @press="onDeletePress">Delete</ui5-button>
+      </div>
+    </div>
+  </ui5-li-custom>
+</template>
+
+<script>
+import Vue from "vue";
+import "@ui5/webcomponents/dist/CustomListItem";
+
+let TodoItem = Vue.component('TodoItem', {
+  props: ["todo", "datakey"],
+  methods: {
+    onEditPress() {
+      this.$emit('itemedit', { id: this.todo.id });
+    },
+    onDeletePress() {
+      this.$emit('itemdeleted', { id: this.todo.id });
+    }
+  }
+});
+
+export default TodoItem;
+
+</script>
+
+<style>
+
+</style>
