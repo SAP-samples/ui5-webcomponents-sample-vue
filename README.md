@@ -53,7 +53,8 @@ Vue.config.ignoredElements = [/^ui5-/];
 
 
 ## Configure Vue Build
-To build the Vue Application with UI5 Web Components, a custom Webpack configuration should be provided.
+When UI5 Web Components are used they include all of its translation files and CLDR data files in the application bundle.
+In order to decrease the bundle size of the application a custom Webpack configuration should be provided. 
 
 Create ```vue.config.js``` file:
 
@@ -64,7 +65,7 @@ module.exports = {
     module: {
       rules: [
         {
-          test: [/cldr\/.*\.json$/, /.*\.properties$/],
+          test: [/cldr\/.*\.json$/, /i18n\/.*\.json$/],
           loader: 'file-loader',
           options: {
             name: 'static/media/[name].[hash:8].[ext]',
