@@ -53,6 +53,7 @@
 </template>
 
 <script>
+import "@ui5/webcomponents-base/src/sap/ui/webcomponents/base/browsersupport/Edge";
 import Vue from "vue";
 import '@ui5/webcomponents/dist/Toolbar';
 import '@ui5/webcomponents/dist/Title';

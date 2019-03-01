@@ -8,7 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@ui5/webcomponents": "^0.7.0",
+    "@ui5/webcomponents": "^0.8.0",
     "vue": "^2.5.21"
   },
   "devDependencies": {
