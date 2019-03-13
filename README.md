@@ -22,7 +22,7 @@ This project was bootstrapped with [Vue CLI](https://cli.vuejs.org/)
 
 1. Start a local server and run the application. (The running application can be found here: http://localhost:8080)
     ```sh
-    npm start
+    npm run serve
     ```
 
 
