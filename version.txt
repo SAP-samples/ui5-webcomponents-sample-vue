@@ -1,5 +1,5 @@
-commit 709a2c6382342dba4bc972e55e0488091e8b1eed
-Author: Adrian Bobev <adrian.bobev@gmail.com>
-Date:   Fri Mar 1 18:05:20 2019 +0200
+commit 2967f7c441573964397ce953df46380c428080e9
+Author: Alessandra Souza <aleferreira@gmail.com>
+Date:   Thu Mar 14 10:16:50 2019 -0400
 
-    chore: update ui5-webcomponents version (#3)
+    docs: update README.md (#6)
