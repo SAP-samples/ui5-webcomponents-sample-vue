@@ -1,5 +1,5 @@
-commit 2967f7c441573964397ce953df46380c428080e9
-Author: Alessandra Souza <aleferreira@gmail.com>
-Date:   Thu Mar 14 10:16:50 2019 -0400
+commit 3a3b8950a64d381d73789dc8506eff26b402e480
+Author: ilhan orhan <ilhan.myumyun@sap.com>
+Date:   Mon Mar 18 15:34:53 2019 +0200
 
-    docs: update README.md (#6)
+    refactor: improve mobile responsiveness (#7)
