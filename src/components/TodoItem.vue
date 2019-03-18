@@ -1,7 +1,7 @@
 <template>
   <ui5-li-custom :data-key="datakey" :selected="todo.done">
     <div class="li-content">
-      <span>{{todo.text}} - finish before: {{todo.deadline}}</span>
+      <span class="li-content-text">{{todo.text}} - finish before: {{todo.deadline}}</span>
       <div class="li-content-actions">
         <ui5-button class="edit-btn" @press="onEditPress">Edit</ui5-button>
         <ui5-button type="Negative" @press="onDeletePress">Delete</ui5-button>

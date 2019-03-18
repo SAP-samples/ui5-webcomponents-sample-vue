@@ -8,9 +8,9 @@
         </header>
         <section class="app-content">
           <div class="create-todo-wrapper">
-            <ui5-input placeholder="My Todo ..." ref="todoInput" class="auto-width" id="add-input"></ui5-input>
-            <ui5-datepicker format-pattern="dd/MM/yyyy" class="auto-width" ref="todoDeadline" id="date-picker"></ui5-datepicker>
-            <ui5-button class="auto-width" ref="addButton" type="Emphasized" @press="handleAdd">Add Todo</ui5-button>
+            <ui5-input placeholder="My Todo ..." ref="todoInput" class="add-todo-element-width" id="add-input"></ui5-input>
+            <ui5-datepicker format-pattern="dd/MM/yyyy" class="add-todo-element-width" ref="todoDeadline" id="date-picker"></ui5-datepicker>
+            <ui5-button class="add-todo-element-width" ref="addButton" type="Emphasized" @press="handleAdd">Add Todo</ui5-button>
           </div>
 
           <div class="list-todos-wrapper">
@@ -204,6 +204,10 @@ export default App;
 </script>
 
 <style>
+body {
+  margin: 0;
+}
+
 .app {
   height: 100%;
 }
@@ -240,7 +244,7 @@ export default App;
   box-sizing: border-box;
 }
 
-.auto-width {
+.add-todo-element-width {
   width: auto;
 }
 
@@ -249,7 +253,7 @@ export default App;
 }
 
 #date-picker {
-  margin: 0 0.5rem;
+  margin: 0 0.5rem 0 0.5rem;
 }
 
 .li-content {
@@ -259,12 +263,18 @@ export default App;
   align-items: center;
 }
 
+.li-content-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .edit-btn {
   margin-right: 1rem;
 }
 
 .dialog-content {
-  width: 320px;
+  max-width: 320px;
   padding: 2rem 2rem;
 }
 
@@ -282,5 +292,19 @@ export default App;
 
 .date-edit-fields {
   margin-top: 1rem;
+}
+
+@media(max-width: 600px) {
+    .create-todo-wrapper {
+        flex-direction: column;
+    }
+
+     .add-todo-element-width  {
+        width: 100%;
+    }
+
+     #date-picker {
+        margin: 0.5rem 0 0.5rem 0;
+    }
 }
 </style>
