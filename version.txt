@@ -1,5 +1,5 @@
-commit 3a3b8950a64d381d73789dc8506eff26b402e480
-Author: ilhan orhan <ilhan.myumyun@sap.com>
-Date:   Mon Mar 18 15:34:53 2019 +0200
+commit 04e907991ef6bbc786c92023242e474547673f8f
+Author: Adrian Bobev <adrian.bobev@gmail.com>
+Date:   Wed Mar 20 22:20:37 2019 +0200
 
-    refactor: improve mobile responsiveness (#7)
+    chore: update ui5-webcomponents version to 0.9.0 (#8)
