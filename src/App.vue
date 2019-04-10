@@ -1,10 +1,8 @@
 <template>
   <div class="app">
         <header class="app-header">
-          <ui5-toolbar class="header-toolbar">
-            <img src='./assets/logo.png' alt="UI5 Logo" class="ui5-logo" />
-            <ui5-title class="app-title">UI5 Web Components Vue Sample Application</ui5-title>
-          </ui5-toolbar>
+          <ui5-shellbar primary-title="UI5 Web Components Vue Sample Application" :logo='logo'>
+          </ui5-shellbar>
         </header>
         <section class="app-content">
           <div class="create-todo-wrapper">
@@ -55,7 +53,9 @@
 <script>
 import "@ui5/webcomponents-base/src/sap/ui/webcomponents/base/browsersupport/Edge";
 import Vue from "vue";
+import logo from './assets/logo.png';
 import '@ui5/webcomponents/dist/Toolbar';
+import '@ui5/webcomponents/dist/ShellBar';
 import '@ui5/webcomponents/dist/Title';
 import '@ui5/webcomponents/dist/Input';
 import '@ui5/webcomponents/dist/DatePicker';
@@ -103,6 +103,7 @@ let App = Vue.component("app", {
           done: true
         }
       ],
+      logo,
       todoBeingEdittedText: "",
       todoBeingEdittedDate: "",
       selectedEditTodo: ""
