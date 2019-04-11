@@ -1,5 +1,5 @@
-commit 04e907991ef6bbc786c92023242e474547673f8f
-Author: Adrian Bobev <adrian.bobev@gmail.com>
-Date:   Wed Mar 20 22:20:37 2019 +0200
+commit 869a6868ccf4ac5496e1d68a276cdd1ee3d14b1e
+Author: ilhan orhan <ilhan.myumyun@sap.com>
+Date:   Thu Apr 11 14:13:20 2019 +0300
 
-    chore: update ui5-webcomponents version to 0.9.0 (#8)
+    chore: replace toolbar with shellbar (#9)
