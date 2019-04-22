@@ -1,3 +1,4 @@
+import "@ui5/webcomponents-base/src/browsersupport/Edge";
 import Vue from 'vue'
 import App from './App.vue'
 
