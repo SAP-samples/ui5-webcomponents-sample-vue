@@ -42,10 +42,10 @@
                 <ui5-datepicker format-pattern="dd/MM/yyyy" :value="todoBeingEdittedDate" ref="dateEditInput"></ui5-datepicker>
             </div>
           </div>
-            <ui5-toolbar class="dialog-footer" data-ui5-slot="footer">
+            <div class="dialog-footer" data-ui5-slot="footer">
               <ui5-button type="Transparent" @press="cancelEdits">Cancel</ui5-button>
               <ui5-button type="Emphasized" @press="saveEdits">Save</ui5-button>
-            </ui5-toolbar>
+            </div>
         </ui5-dialog>
       </div>
 </template>
@@ -279,9 +279,10 @@ body {
 }
 
 .dialog-footer {
-  padding: 0 0.5rem;
   display: flex;
   justify-content: flex-end;
+  padding: 0.25rem 0.25rem 0 0.25rem;
+  border-top: 1px solid #d9d9d9;
 }
 
 .title-textarea {
