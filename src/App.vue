@@ -51,10 +51,9 @@
 </template>
 
 <script>
-import "@ui5/webcomponents-base/src/sap/ui/webcomponents/base/browsersupport/Edge";
+import "@ui5/webcomponents-base/src/browsersupport/Edge";
 import Vue from "vue";
 import logo from './assets/logo.png';
-import '@ui5/webcomponents/dist/Toolbar';
 import '@ui5/webcomponents/dist/ShellBar';
 import '@ui5/webcomponents/dist/Title';
 import '@ui5/webcomponents/dist/Input';
