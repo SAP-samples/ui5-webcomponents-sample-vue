@@ -1,5 +1,5 @@
-commit 40768488de9ae9b8385b3e0bb34a957599c81ac4
+commit 6395551c26911a4dcf3684418aae5cd2f248bed0
 Author: ilhan orhan <ilhan.myumyun@sap.com>
-Date:   Wed Apr 24 11:27:44 2019 +0300
+Date:   Thu Apr 25 10:30:20 2019 +0300
 
-    chore: remove toolbar usage (#12)
+    chore: adopt v0.10.1 (#13)
