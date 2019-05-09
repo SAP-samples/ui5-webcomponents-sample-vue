@@ -69,6 +69,7 @@ Example:
 import "@ui5/webcomponents-base/src/browsersupport/IE11"; // This will enable Edge and IE11 support for all Web Components below
 import "@ui5/webcomponents/dist/Button"; // loads ui5-button
 import "@ui5/webcomponents/dist/Label"; // loads ui5-label
+```
 
 ## Configure Vue to work with Web Components defined outside of it
 To use Web Components in Vue Application a configuration option should be provided in the ```main.js``` file to tell the Vue about these components. More can be found in the documentation of [Vue.config.ignoredElements](https://vuejs.org/v2/api/#ignoredElements):
