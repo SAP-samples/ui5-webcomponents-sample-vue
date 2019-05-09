@@ -31,7 +31,7 @@ This project was bootstrapped with [Vue CLI](https://cli.vuejs.org/)
 ### Consume UI5 Web Components
 Import the desired component(s) in your app to define the UI5 Web Component.
  
-For example, to use ```ui5-button``` you need to import it:
+For example, to use `ui5-button` you need to import it:
  
 ```js
 import "@ui5/webcomponents/dist/Button"; // loads ui5-button
@@ -69,9 +69,10 @@ Example:
 import "@ui5/webcomponents-base/src/browsersupport/IE11"; // This will enable Edge and IE11 support for all Web Components below
 import "@ui5/webcomponents/dist/Button"; // loads ui5-button
 import "@ui5/webcomponents/dist/Label"; // loads ui5-label
+```
 
 ## Configure Vue to work with Web Components defined outside of it
-To use Web Components in Vue Application a configuration option should be provided in the ```main.js``` file to tell the Vue about these components. More can be found in the documentation of [Vue.config.ignoredElements](https://vuejs.org/v2/api/#ignoredElements):
+To use Web Components in Vue Application a configuration option should be provided in the `main.js` file to tell the Vue about these components. More can be found in the documentation of [Vue.config.ignoredElements](https://vuejs.org/v2/api/#ignoredElements):
 
 **main.js**
 ```js
@@ -83,7 +84,7 @@ Vue.config.ignoredElements = [/^ui5-/];
 When UI5 Web Components are used they include all of their translation files and CLDR data files in the application bundle.
 In order to decrease the bundle size of the application a custom Webpack configuration should be provided. 
 
-Create ```vue.config.js``` file:
+Create `vue.config.js` file:
 
 **vue.config.js**
 ```js
