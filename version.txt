@@ -1,5 +1,8 @@
-commit 6395551c26911a4dcf3684418aae5cd2f248bed0
-Author: ilhan orhan <ilhan.myumyun@sap.com>
-Date:   Thu Apr 25 10:30:20 2019 +0300
+commit 71567b1f1ec1a9b399a1c3b2d488c44c4f160909
+Author: Merbin J Anselm <merbinjanselm@gmail.com>
+Date:   Thu May 9 16:51:21 2019 +0530
 
-    chore: adopt v0.10.1 (#13)
+    Fixed issues & improved backtick in Readme.md (#15)
+    
+    * Fixed the code example in line72
+    * Improved backtick format for inline code mentions
