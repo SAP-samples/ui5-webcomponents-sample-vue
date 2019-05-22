@@ -118,7 +118,7 @@ let App = Vue.component("app", {
       }];
     },
     handleDone(event) {
-      const selectedItem = event.detail.items[0];
+      const selectedItem = event.detail.selectedItems[0];
       const selectedId = selectedItem.getAttribute("data-key");
 
       const newlySelected = this.todos.filter(todo => {
@@ -132,7 +132,7 @@ let App = Vue.component("app", {
       });
     },
     handleUndone(event) {
-      const selectedItems = event.detail.items;
+      const selectedItems = event.detail.selectedItems;
       const selectedIds = selectedItems.map(item => item.getAttribute("data-key"));
 
       const newlyDeselected = this.doneTodos.filter(todo => {
