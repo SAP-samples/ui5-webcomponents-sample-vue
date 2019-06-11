@@ -1,5 +1,5 @@
-commit c704583283db358c4087eb78cb786aabe2beb13a
-Author: ilhan orhan <ilhan.myumyun@sap.com>
-Date:   Wed May 22 22:27:06 2019 +0300
+commit 565785633c3d188380c2e0dcc2c8ac16e4f8a390
+Author: Ramona <ramona.biscoveanu@gmail.com>
+Date:   Tue Jun 11 12:23:03 2019 +0200
 
-    chore: adopt v0.11.0 (#17)
+    fix: edit and delete for new items (#18)
