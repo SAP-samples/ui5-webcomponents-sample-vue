@@ -112,7 +112,7 @@ let App = Vue.component("app", {
     handleAdd: function() {
       this.todos = [...this.todos, {
         text: this.$refs["todoInput"].value,
-        id: this.todos.length + 1,
+        id: (this.todos.length + 1).toString(),
         deadline: this.$refs["todoDeadline"].value,
         done: false
       }];
