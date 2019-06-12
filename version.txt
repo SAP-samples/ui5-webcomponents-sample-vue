@@ -1,5 +1,5 @@
-commit 565785633c3d188380c2e0dcc2c8ac16e4f8a390
-Author: Ramona <ramona.biscoveanu@gmail.com>
-Date:   Tue Jun 11 12:23:03 2019 +0200
+commit 7fb35b0d6feb12300210f82317e2e48cbc1e9286
+Author: Filip Siderov <filip.siderov@sap.com>
+Date:   Wed Jun 12 11:30:58 2019 +0300
 
-    fix: edit and delete for new items (#18)
+    chore: update version of ui5 web components to 0.12.0 (#19)
