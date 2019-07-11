@@ -12,15 +12,15 @@
           </div>
 
           <div class="list-todos-wrapper">
-            <TodoList :todos="todos" @selectionchange="handleDone"
-            @itemdeleted="handleRemove"
-            @itemedit="handleEdit">
+            <TodoList :todos="todos" @selection-change="handleDone"
+            @item-deleted="handleRemove"
+            @item-edit="handleEdit">
             </TodoList>
 
             <ui5-panel header-text="Completed tasks">
-              <TodoList :todos="doneTodos" @selectionchange="handleUndone"
-              @itemdeleted="handleRemove"
-              @itemedit="handleEdit">
+              <TodoList :todos="doneTodos" @selection-change="handleUndone"
+              @item-deleted="handleRemove"
+              @item-edit="handleEdit">
               </TodoList>
             </ui5-panel>
           </div>

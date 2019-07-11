@@ -18,10 +18,10 @@ let TodoItem = Vue.component('TodoItem', {
   props: ["todo", "datakey"],
   methods: {
     onEditPress() {
-      this.$emit('itemedit', { id: this.todo.id });
+      this.$emit('item-edit', { id: this.todo.id });
     },
     onDeletePress() {
-      this.$emit('itemdeleted', { id: this.todo.id });
+      this.$emit('item-deleted', { id: this.todo.id });
     }
   }
 });
