@@ -1,12 +1,11 @@
-commit 7f0ed8b67ea6fdeb1081ed5f3fe55ed09c7b9d1d
+commit 7c1c8440bb8e665d4dd7e759bcd58046738b7ba2
 Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
-Date:   Thu Jul 11 10:09:47 2019 +0300
+Date:   Thu Jul 11 10:13:50 2019 +0300
 
-    chore(deps): bump webpack-bundle-analyzer from 3.0.3 to 3.3.2 (#22)
+    chore(deps): bump lodash from 4.17.11 to 4.17.14 (#23)
     
-    Bumps [webpack-bundle-analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer) from 3.0.3 to 3.3.2.
-    - [Release notes](https://github.com/webpack-contrib/webpack-bundle-analyzer/releases)
-    - [Changelog](https://github.com/webpack-contrib/webpack-bundle-analyzer/blob/master/CHANGELOG.md)
-    - [Commits](https://github.com/webpack-contrib/webpack-bundle-analyzer/compare/v3.0.3...v3.3.2)
+    Bumps [lodash](https://github.com/lodash/lodash) from 4.17.11 to 4.17.14.
+    - [Release notes](https://github.com/lodash/lodash/releases)
+    - [Commits](https://github.com/lodash/lodash/compare/4.17.11...4.17.14)
     
     Signed-off-by: dependabot[bot] <support@github.com>
