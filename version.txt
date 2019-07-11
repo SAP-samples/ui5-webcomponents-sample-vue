@@ -1,5 +1,11 @@
-commit 7fb35b0d6feb12300210f82317e2e48cbc1e9286
-Author: Filip Siderov <filip.siderov@sap.com>
-Date:   Wed Jun 12 11:30:58 2019 +0300
+commit 9521f63a4cbedcba24169d2cd6b0683a9fa202e1
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Thu Jul 11 10:07:56 2019 +0300
 
-    chore: update version of ui5 web components to 0.12.0 (#19)
+    chore(deps): bump lodash.defaultsdeep from 4.6.0 to 4.6.1 (#20)
+    
+    Bumps [lodash.defaultsdeep](https://github.com/lodash/lodash) from 4.6.0 to 4.6.1.
+    - [Release notes](https://github.com/lodash/lodash/releases)
+    - [Commits](https://github.com/lodash/lodash/compare/4.6.0...4.6.1)
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
