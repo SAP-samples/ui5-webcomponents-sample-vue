@@ -1,11 +1,5 @@
-commit 7c1c8440bb8e665d4dd7e759bcd58046738b7ba2
-Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
-Date:   Thu Jul 11 10:13:50 2019 +0300
+commit 9e9d86eabafb5a7c06d629885b0e475f6e9d9b4d
+Author: Zhihui Wang <zhihui.wang@live.com>
+Date:   Mon Jul 22 23:00:07 2019 +1200
 
-    chore(deps): bump lodash from 4.17.11 to 4.17.14 (#23)
-    
-    Bumps [lodash](https://github.com/lodash/lodash) from 4.17.11 to 4.17.14.
-    - [Release notes](https://github.com/lodash/lodash/releases)
-    - [Commits](https://github.com/lodash/lodash/compare/4.17.11...4.17.14)
-    
-    Signed-off-by: dependabot[bot] <support@github.com>
+    change custom event names to kebab style (#24)
