@@ -1,8 +1,8 @@
 <template>
   <ui5-list id="todo-list" mode="MultiSelect" ref="list" @selectionChange="onSelectionChange">
     <TodoItem v-for="(todo) in todos" :todo="todo" :key="todo.id" :datakey="todo.id"
-    @itemdeleted="onItemDeleted"
-    @itemedit="onItemEdit">
+    @item-deleted="onItemDeleted"
+    @item-edit="onItemEdit">
     </TodoItem>
   </ui5-list>
 </template>
@@ -17,13 +17,13 @@ let TodoList = Vue.component('TodoList', {
   props: ["todos"],
   methods: {
     onSelectionChange(event) {
-      this.$emit('selectionchange', event);
+      this.$emit('selection-change', event);
     },
     onItemDeleted(event) {
-      this.$emit('itemdeleted', event);
+      this.$emit('item-deleted', event);
     },
     onItemEdit(event) {
-      this.$emit('itemedit', event);
+      this.$emit('item-edit', event);
     }
   }
 });
