@@ -4,7 +4,7 @@
       <span class="li-content-text">{{todo.text}} - finish before: {{todo.deadline}}</span>
       <div class="li-content-actions">
         <ui5-button class="edit-btn" @press="onEditPress">Edit</ui5-button>
-        <ui5-button type="Negative" @press="onDeletePress">Delete</ui5-button>
+        <ui5-button design="Negative" @press="onDeletePress">Delete</ui5-button>
       </div>
     </div>
   </ui5-li-custom>
