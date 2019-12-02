@@ -1,5 +1,5 @@
-commit 9e9d86eabafb5a7c06d629885b0e475f6e9d9b4d
-Author: Zhihui Wang <zhihui.wang@live.com>
-Date:   Mon Jul 22 23:00:07 2019 +1200
+commit 1bd8e3dcae8d696c2ff94c65ebe467497f84e915
+Author: Filip Siderov <filip.siderov@sap.com>
+Date:   Mon Dec 2 11:31:21 2019 +0200
 
-    change custom event names to kebab style (#24)
+    update ui5 webcomponents version to 1.0.0-rc.4 (#27)
