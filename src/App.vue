@@ -8,7 +8,7 @@
           <div class="create-todo-wrapper">
             <ui5-input placeholder="My Todo ..." ref="todoInput" class="add-todo-element-width" id="add-input"></ui5-input>
             <ui5-datepicker format-pattern="dd/MM/yyyy" class="add-todo-element-width" ref="todoDeadline" id="date-picker"></ui5-datepicker>
-            <ui5-button class="add-todo-element-width" ref="addButton" design="Emphasized" @press="handleAdd">Add Todo</ui5-button>
+            <ui5-button class="add-todo-element-width" ref="addButton" design="Emphasized" @click="handleAdd">Add Todo</ui5-button>
           </div>
 
           <div class="list-todos-wrapper">
@@ -43,8 +43,8 @@
             </div>
           </div>
             <div class="dialog-footer" data-ui5-slot="footer">
-              <ui5-button design="Transparent" @press="cancelEdits">Cancel</ui5-button>
-              <ui5-button design="Emphasized" @press="saveEdits">Save</ui5-button>
+              <ui5-button design="Transparent" @click="cancelEdits">Cancel</ui5-button>
+              <ui5-button design="Emphasized" @click="saveEdits">Save</ui5-button>
             </div>
         </ui5-dialog>
       </div>
@@ -54,7 +54,6 @@
 import "@ui5/webcomponents-base/dist/features/browsersupport/Edge";
 import Vue from "vue";
 import logo from './assets/logo.png';
-import '@ui5/webcomponents/dist/ShellBar';
 import '@ui5/webcomponents/dist/Title';
 import '@ui5/webcomponents/dist/Input';
 import '@ui5/webcomponents/dist/DatePicker';
@@ -63,6 +62,7 @@ import '@ui5/webcomponents/dist/Dialog';
 import '@ui5/webcomponents/dist/Panel';
 import '@ui5/webcomponents/dist/Label';
 import '@ui5/webcomponents/dist/TextArea';
+import '@ui5/webcomponents-fiori/dist/ShellBar';
 import './components/TodoList.vue';
 
 let App = Vue.component("app", {
