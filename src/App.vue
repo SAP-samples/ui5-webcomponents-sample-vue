@@ -51,6 +51,8 @@
 </template>
 
 <script>
+import '@webcomponents/custom-elements/custom-elements.min.js'
+import '@webcomponents/shadydom/shadydom.min.js'
 import "@ui5/webcomponents-base/dist/features/browsersupport/Edge";
 import Vue from "vue";
 import logo from './assets/logo.png';
