@@ -1,5 +1,5 @@
-commit eb3dfbf1498e02c6cbdc9fe94f029c093970776a
-Author: ilhan orhan <ilhan.myumyun@sap.com>
-Date:   Mon Dec 2 16:12:11 2019 +0200
+commit 9c71dde77610d16e0fd2c5e7c64a4004c4ed049a
+Author: Filip Siderov <filip.siderov@sap.com>
+Date:   Fri Feb 14 11:34:09 2020 +0200
 
-    chore: migrate to RC 5 (#28)
+    add polyfills (#30)
