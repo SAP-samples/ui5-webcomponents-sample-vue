@@ -1,5 +1,5 @@
-commit 9c71dde77610d16e0fd2c5e7c64a4004c4ed049a
-Author: Filip Siderov <filip.siderov@sap.com>
-Date:   Fri Feb 14 11:34:09 2020 +0200
+commit eb04fcad5f919c649ea90a716c3963a162b86d16
+Author: Martin <martin.r.hristov@gmail.com>
+Date:   Fri Apr 24 10:52:08 2020 +0300
 
-    add polyfills (#30)
+    chore: use "next" UI5 Web Components version (#33)
