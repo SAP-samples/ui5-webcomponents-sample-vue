@@ -1,5 +1,5 @@
-commit eb04fcad5f919c649ea90a716c3963a162b86d16
-Author: Martin <martin.r.hristov@gmail.com>
-Date:   Fri Apr 24 10:52:08 2020 +0300
+commit b69fda32e58cf7fc9f67cdd56116be7ecf05ad1c
+Author: ilhan orhan <ilhan.myumyun@sap.com>
+Date:   Fri Apr 24 11:50:04 2020 +0300
 
-    chore: use "next" UI5 Web Components version (#33)
+    use next version (#34)
