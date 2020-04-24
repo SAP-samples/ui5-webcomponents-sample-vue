@@ -31,7 +31,7 @@
                 <ui5-label>Title:</ui5-label>
                 <ui5-textarea class="title-textarea"
                   show-exceeded-text
-                  max-length="24"
+                  maxlength="24"
                   :value="todoBeingEdittedText"
                   ref="titleEditInput">
                 </ui5-textarea>
