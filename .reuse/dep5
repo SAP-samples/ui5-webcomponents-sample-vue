@@ -1,5 +1,5 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: OpenUI5
+Upstream-Name: UI5 Webcomponents Sample with Vue
 Upstream-Contact: SAP OpenUI5 <openui5@sap.com>
 Source: https://github.com/SAP-samples/ui5-webcomponents-sample-vue
 Disclaimer: The code in this project may include calls to APIs (“API Calls”) of
