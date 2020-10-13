@@ -1,5 +1,5 @@
-commit b69fda32e58cf7fc9f67cdd56116be7ecf05ad1c
+commit 84b3d8659e918a02779d32720d96b6a2c2124511
 Author: ilhan orhan <ilhan.myumyun@sap.com>
-Date:   Fri Apr 24 11:50:04 2020 +0300
+Date:   Tue Oct 13 07:46:25 2020 +0300
 
-    use next version (#34)
+    chore: update license info (#40)
