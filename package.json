@@ -10,6 +10,7 @@
   "dependencies": {
     "@ui5/webcomponents": "next",
     "@ui5/webcomponents-fiori": "next",
+    "@ui5/webcomponents-ie11": "next",
     "@webcomponents/custom-elements": "^1.3.2",
     "@webcomponents/shadydom": "^1.7.1",
     "vue": "^2.5.21"

@@ -55,7 +55,7 @@ import Vue from "vue";
 import logo from './assets/logo.png';
 import '@webcomponents/custom-elements/custom-elements.min.js'
 import '@webcomponents/shadydom/shadydom.min.js'
-import "@ui5/webcomponents-base/dist/features/browsersupport/Edge";
+import "@ui5/webcomponents-ie11/dist/features/IE11.js";
 import '@ui5/webcomponents/dist/Title';
 import '@ui5/webcomponents/dist/Input';
 import '@ui5/webcomponents/dist/DatePicker';
@@ -73,25 +73,25 @@ let App = Vue.component("app", {
       todos: [
         {
           text: "Get some carrots",
-          id: "i1",
+          id: 1,
           deadline: "27/7/2018",
           done: false
         },
         {
           text: "Do some magic",
-          id: "i2",
+          id: 2,
           deadline: "22/7/2018",
           done: false
         },
         {
           text: "Go to the gym",
-          id: "i3",
+          id: 3,
           deadline: "24/7/2018",
           done: false
         },
         {
           text: "Buy milk",
-          id: "i4",
+          id: 4,
           deadline: "30/7/2018",
           done: false
         }
@@ -99,11 +99,12 @@ let App = Vue.component("app", {
       doneTodos: [
         {
           text: "Eat some fruits",
-          id: "i5",
+          id: 5,
           deadline: "29/7/2018",
           done: true
         }
       ],
+      nextId: 5,
       logo,
       todoBeingEdittedText: "",
       todoBeingEdittedDate: "",
@@ -114,7 +115,7 @@ let App = Vue.component("app", {
     handleAdd: function() {
       this.todos = [...this.todos, {
         text: this.$refs["todoInput"].value,
-        id: (this.todos.length + 1).toString(),
+        id: ++this.nextId,
         deadline: this.$refs["todoDeadline"].value,
         done: false
       }];
@@ -150,20 +151,20 @@ let App = Vue.component("app", {
       this.todos = [...this.todos, ...newlyDeselected];
     },
     handleRemove(item) {
-      const filteredTodos = this.todos.filter(todo => todo.id.toString() !== item.id);
+      const filteredTodos = this.todos.filter(todo => todo.id !== item.id);
       this.todos = filteredTodos;
 
-      const filteredDoneTodos = this.doneTodos.filter(todo => todo.id.toString() !== item.id);
+      const filteredDoneTodos = this.doneTodos.filter(todo => todo.id !== item.id);
       this.doneTodos = filteredDoneTodos;
     },
     handleEdit(item) {
-      const matchedTodos = this.todos.filter(todo => todo.id.toString() === item.id);
+      const matchedTodos = this.todos.filter(todo => todo.id === item.id);
       let todoObj;
 
       if (matchedTodos.length) { 
         todoObj = matchedTodos[0];
       } else {
-        todoObj = this.doneTodos.filter(todo => todo.id.toString() === item.id)[0];
+        todoObj = this.doneTodos.filter(todo => todo.id === item.id)[0];
       }
 
       this.todoBeingEdittedText = todoObj.text;

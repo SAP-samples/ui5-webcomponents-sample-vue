@@ -45,28 +45,18 @@ Then, you can use the custom element in an HTML page:
 
 ## Browser support
 
-Currently only Chrome, Safari and Firefox support Web Components natively.
+Currently Chrome, Safari Firefox and Edge(Chromium based version) support Web Components natively.
 
-If your application should run on browsers without native Web Components support (Edge and/or IE11), import one the following modules before your first Web Component import: 
-
-### Edge only
+If your application should run on browsers without native Web Components support (IE11), import the following module before your first Web Component import: 
 
 ```js
-import "@ui5/webcomponents-base/dist/features/browsersupport/Edge";
+import "@ui5/webcomponents-ie11/dist/features/IE11.js";
 ```
-
-### Edge and IE11
-
-```js
-import "@ui5/webcomponents-base/dist/features/browsersupport/IE11";
-```
-
-*Note:* Importing the module for IE11 support automatically enables Edge support as well, so there is no need to import them both explicitly.
 
 Example:
 
 ```js
-import "@ui5/webcomponents-base/dist/features/browsersupport/IE11"; // This will enable Edge and IE11 support for all Web Components below
+import "@ui5/webcomponents-ie11/dist/features/IE11.js"; // This will enable Edge and IE11 support for all Web Components below
 import "@ui5/webcomponents/dist/Button"; // loads ui5-button
 import "@ui5/webcomponents/dist/Label"; // loads ui5-label
 ```
