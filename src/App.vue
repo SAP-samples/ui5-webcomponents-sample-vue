@@ -7,7 +7,7 @@
         <section class="app-content">
           <div class="create-todo-wrapper">
             <ui5-input placeholder="My Todo ..." ref="todoInput" class="add-todo-element-width" id="add-input"></ui5-input>
-            <ui5-datepicker format-pattern="dd/MM/yyyy" class="add-todo-element-width" ref="todoDeadline" id="date-picker"></ui5-datepicker>
+            <ui5-date-picker format-pattern="dd/MM/yyyy" class="add-todo-element-width" ref="todoDeadline" id="date-picker"></ui5-date-picker>
             <ui5-button class="add-todo-element-width" ref="addButton" design="Emphasized" @click="handleAdd">Add Todo</ui5-button>
           </div>
 
@@ -39,7 +39,7 @@
 
             <div class="edit-wrapper date-edit-fields">
                 <ui5-label>Date:</ui5-label>
-                <ui5-datepicker format-pattern="dd/MM/yyyy" :value="todoBeingEdittedDate" ref="dateEditInput"></ui5-datepicker>
+                <ui5-date-picker format-pattern="dd/MM/yyyy" :value="todoBeingEdittedDate" ref="dateEditInput"></ui5-date-picker>
             </div>
           </div>
             <div class="dialog-footer" data-ui5-slot="footer">
@@ -55,7 +55,6 @@ import Vue from "vue";
 import logo from './assets/logo.png';
 import '@webcomponents/custom-elements/custom-elements.min.js'
 import '@webcomponents/shadydom/shadydom.min.js'
-import "@ui5/webcomponents-base/dist/features/browsersupport/Edge";
 import '@ui5/webcomponents/dist/Title';
 import '@ui5/webcomponents/dist/Input';
 import '@ui5/webcomponents/dist/DatePicker';
@@ -170,7 +169,7 @@ let App = Vue.component("app", {
       this.todoBeingEdittedDate = todoObj.deadline;
       this.selectedEditTodo = todoObj.id;
 
-      this.$refs["editDialog"].open();
+      this.$refs["editDialog"].show();
     },
     saveEdits() {
       const edittedText = this.$refs["titleEditInput"].value;
