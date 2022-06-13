@@ -7,7 +7,7 @@ on:
     branches:
       - main
 jobs:
-  Test-and-Build:
+  check:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-node@v2.4.1
         with:
           node-version: 16.x
-      - name: Install and Lint
+      - name: Lint
         run: |
           npm install
           npm run lint
