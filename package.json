@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "lint:commit": "commitlint -e",
-    "husky:pre-commit": "npm run lint:commit",
+    "hooks:pre-push": "npm run lint:commit",
     "prepare": "husky install"
   },
   "dependencies": {
