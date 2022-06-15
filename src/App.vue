@@ -2,7 +2,7 @@
 	<div class="app">
 		<header class="app-header">
 			<ui5-shellbar primary-title="UI5 Web Components Vue Sample Application">
-				<img :src=logo slot="logo"/>
+				<img  class="app-header-logo" :src=logo slot="logo"/>
 			</ui5-shellbar>
 		</header>
 		<section class="app-content">
@@ -18,7 +18,7 @@
 				@item-edit="handleEdit">
 				</TodoList>
 
-				<ui5-panel header-text="Completed tasks">
+				<ui5-panel header-text="Completed Tasks">
 					<TodoList :todos="doneTodos" @selection-change="handleUndone"
 					@item-deleted="handleRemove"
 					@item-edit="handleEdit">
@@ -225,9 +225,9 @@ body {
 	box-shadow: 0 4px 5px -5px #0a6ed1;
 }
 
-.ui5-logo {
+.app-header-logo {
 	height: 2rem;
-	margin-left: 2rem;
+	max-height: 2rem;
 }
 
 .app-title {
