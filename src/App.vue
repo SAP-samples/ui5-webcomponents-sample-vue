@@ -1,7 +1,8 @@
 <template>
 	<div class="app">
 		<header class="app-header">
-			<ui5-shellbar primary-title="UI5 Web Components Vue Sample Application" :logo='logo'>
+			<ui5-shellbar primary-title="UI5 Web Components Vue Sample Application">
+				<img :src=logo slot="logo"/>
 			</ui5-shellbar>
 		</header>
 		<section class="app-content">
