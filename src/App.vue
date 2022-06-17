@@ -286,6 +286,10 @@ html, body {
 	width: calc(100% - 2rem);
 }
 
+.app-bar-theming-popover {
+	width: 250px;
+}
+
 .create-todo-wrapper {
 	display: flex;
 	align-items: center;
