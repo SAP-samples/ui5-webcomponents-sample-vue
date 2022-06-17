@@ -22,14 +22,14 @@
 			</div>
 
 			<div class="list-todos-wrapper">
-				<ui5-panel class="list-todos-panel" header-text="Incompleted Tasks">
+				<ui5-panel class="list-todos-panel" header-text="Incompleted Tasks" :collapsed="hasTodos()">
 					<TodoList :todos="todos" @selection-change="handleDone"
 						@item-deleted="handleRemove"
 						@item-edit="handleEdit">
 					</TodoList>
 				</ui5-panel>
 
-				<ui5-panel  class="list-todos-panel" header-text="Completed Tasks">
+				<ui5-panel  class="list-todos-panel" header-text="Completed Tasks" :collapsed="hasCompletedTodos()">
 					<TodoList :todos="doneTodos" @selection-change="handleUndone"
 						@item-deleted="handleRemove"
 						@item-edit="handleEdit">
@@ -149,102 +149,108 @@ let App = Vue.component("app", {
 		};
 	},
 	methods: {
-	handleThemeSettingsToggle: function(event) {
-		this.$refs["theme-settings-popover"].showAt(event.detail.targetRef);
-	},
-	handleThemeChange: function(event) {
-		setTheme(event.detail.selectedItems[0].getAttribute("data-theme"));
-		this.$refs["theme-settings-popover"].close();
-	},
-	handleAdd: function() {
-		this.todos = [...this.todos, {
-			text: this.$refs["todoInput"].value,
-			id: (this.todos.length + 1).toString(),
-			deadline: this.$refs["todoDeadline"].value,
-			done: false
-		}];
-	},
-	handleDone(event) {
-		const selectedItem = event.detail.selectedItems[0];
-		const selectedId = selectedItem.getAttribute("data-key");
+		handleThemeSettingsToggle: function(event) {
+			this.$refs["theme-settings-popover"].showAt(event.detail.targetRef);
+		},
+		handleThemeChange: function(event) {
+			setTheme(event.detail.selectedItems[0].getAttribute("data-theme"));
+			this.$refs["theme-settings-popover"].close();
+		},
+		handleAdd: function() {
+			this.todos = [...this.todos, {
+				text: this.$refs["todoInput"].value,
+				id: (this.todos.length + 1).toString(),
+				deadline: this.$refs["todoDeadline"].value,
+				done: false
+			}];
+		},
+		handleDone(event) {
+			const selectedItem = event.detail.selectedItems[0];
+			const selectedId = selectedItem.getAttribute("data-key");
 
-		const newlySelected = this.todos.filter(todo => {
-			return selectedId === todo.id.toString();
-		})[0];
-		newlySelected.done = true;
-		this.doneTodos.push(newlySelected);
+			const newlySelected = this.todos.filter(todo => {
+				return selectedId === todo.id.toString();
+			})[0];
+			newlySelected.done = true;
+			this.doneTodos.push(newlySelected);
 
-		this.todos = this.todos.filter(todo => {
-			return selectedId !== todo.id.toString();
-		});
-	},
-	handleUndone(event) {
-		const selectedItems = event.detail.selectedItems;
-		const selectedIds = selectedItems.map(item => item.getAttribute("data-key"));
+			this.todos = this.todos.filter(todo => {
+				return selectedId !== todo.id.toString();
+			});
+		},
+		handleUndone(event) {
+			const selectedItems = event.detail.selectedItems;
+			const selectedIds = selectedItems.map(item => item.getAttribute("data-key"));
 
-		const newlyDeselected = this.doneTodos.filter(todo => {
-			return selectedIds.indexOf(todo.id.toString()) === -1;
-		}).map(item => {
-			return { ...item, done: false };
-		});
+			const newlyDeselected = this.doneTodos.filter(todo => {
+				return selectedIds.indexOf(todo.id.toString()) === -1;
+			}).map(item => {
+				return { ...item, done: false };
+			});
 
-		this.doneTodos = this.doneTodos.filter(todo => {
-			return selectedIds.indexOf(todo.id.toString()) > -1;
-		});
+			this.doneTodos = this.doneTodos.filter(todo => {
+				return selectedIds.indexOf(todo.id.toString()) > -1;
+			});
 
-		this.todos = [...this.todos, ...newlyDeselected];
-	},
-	handleRemove(item) {
-		const filteredTodos = this.todos.filter(todo => todo.id.toString() !== item.id);
-		this.todos = filteredTodos;
+			this.todos = [...this.todos, ...newlyDeselected];
+		},
+		handleRemove(item) {
+			const filteredTodos = this.todos.filter(todo => todo.id.toString() !== item.id);
+			this.todos = filteredTodos;
 
-		const filteredDoneTodos = this.doneTodos.filter(todo => todo.id.toString() !== item.id);
-		this.doneTodos = filteredDoneTodos;
-	},
-	handleEdit(item) {
-		const matchedTodos = this.todos.filter(todo => todo.id.toString() === item.id);
-		let todoObj;
+			const filteredDoneTodos = this.doneTodos.filter(todo => todo.id.toString() !== item.id);
+			this.doneTodos = filteredDoneTodos;
+		},
+		handleEdit(item) {
+			const matchedTodos = this.todos.filter(todo => todo.id.toString() === item.id);
+			let todoObj;
 
-		if (matchedTodos.length) { 
-		todoObj = matchedTodos[0];
-		} else {
-		todoObj = this.doneTodos.filter(todo => todo.id.toString() === item.id)[0];
+			if (matchedTodos.length) { 
+			todoObj = matchedTodos[0];
+			} else {
+			todoObj = this.doneTodos.filter(todo => todo.id.toString() === item.id)[0];
+			}
+
+			this.todoBeingEdittedText = todoObj.text;
+			this.todoBeingEdittedDate = todoObj.deadline;
+			this.selectedEditTodo = todoObj.id;
+
+			this.$refs["editDialog"].show();
+		},
+		saveEdits() {
+			const edittedText = this.$refs["titleEditInput"].value;
+			const edittedDate = this.$refs["dateEditInput"].value;
+
+			this.todos = this.todos.map((todo) => {
+			if (todo.id === this.selectedEditTodo) {
+				todo.text = edittedText;
+				todo.deadline = edittedDate;
+			}
+
+			return todo;
+			});
+
+			this.doneTodos = this.doneTodos.map((todo) => {
+			if (todo.id === this.selectedEditTodo) {
+				todo.text = edittedText;
+				todo.deadline = edittedDate;
+			}
+
+			return todo;
+			});
+
+			this.$refs["editDialog"].close();
+		},
+		cancelEdits() {
+			this.$refs["editDialog"].close();
+		},
+		hasTodos() {
+			return !this.todos.length;
+		},
+		hasCompletedTodos() {
+			return !this.doneTodos.length;
 		}
-
-		this.todoBeingEdittedText = todoObj.text;
-		this.todoBeingEdittedDate = todoObj.deadline;
-		this.selectedEditTodo = todoObj.id;
-
-		this.$refs["editDialog"].show();
-	},
-	saveEdits() {
-		const edittedText = this.$refs["titleEditInput"].value;
-		const edittedDate = this.$refs["dateEditInput"].value;
-
-		this.todos = this.todos.map((todo) => {
-		if (todo.id === this.selectedEditTodo) {
-			todo.text = edittedText;
-			todo.deadline = edittedDate;
-		}
-
-		return todo;
-		});
-
-		this.doneTodos = this.doneTodos.map((todo) => {
-		if (todo.id === this.selectedEditTodo) {
-			todo.text = edittedText;
-			todo.deadline = edittedDate;
-		}
-
-		return todo;
-		});
-
-		this.$refs["editDialog"].close();
-	},
-	cancelEdits() {
-		this.$refs["editDialog"].close();
 	}
-  }
 });
 
 setTheme("sap_horizon");
