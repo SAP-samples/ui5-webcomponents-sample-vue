@@ -87,6 +87,7 @@ import logo from './assets/logo.png';
 import '@webcomponents/custom-elements/custom-elements.min.js'
 import '@webcomponents/shadydom/shadydom.min.js'
 import {setTheme } from "@ui5/webcomponents-base/dist/config/Theme";
+import '@ui5/webcomponents-base/dist/features/F6Navigation';
 import '@ui5/webcomponents/dist/Title';
 import '@ui5/webcomponents/dist/Input';
 import '@ui5/webcomponents/dist/DatePicker';
