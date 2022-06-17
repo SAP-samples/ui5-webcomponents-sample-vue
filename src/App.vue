@@ -22,14 +22,14 @@
 			</div>
 
 			<div class="list-todos-wrapper">
-				<ui5-panel header-text="Incompleted Tasks">
+				<ui5-panel class="list-todos-panel" header-text="Incompleted Tasks">
 					<TodoList :todos="todos" @selection-change="handleDone"
 						@item-deleted="handleRemove"
 						@item-edit="handleEdit">
 					</TodoList>
 				</ui5-panel>
 
-				<ui5-panel header-text="Completed Tasks">
+				<ui5-panel  class="list-todos-panel" header-text="Completed Tasks">
 					<TodoList :todos="doneTodos" @selection-change="handleUndone"
 						@item-deleted="handleRemove"
 						@item-edit="handleEdit">
@@ -297,6 +297,10 @@ html, body {
 }
 
 .list-todos-wrapper {
+	margin: 2rem 0;
+}
+
+.list-todos-panel {
 	margin: 2rem 0;
 }
 
