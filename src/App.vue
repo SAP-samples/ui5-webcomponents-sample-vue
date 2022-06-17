@@ -1,27 +1,38 @@
 <template>
 	<div class="app">
 		<header class="app-header">
-			<ui5-shellbar primary-title="UI5 Web Components Vue Sample Application">
-				<img  class="app-header-logo" :src=logo slot="logo"/>
+			<ui5-shellbar primary-title="UI5 Web Components Vue Sample Application"
+				show-notifications
+				notifications-count="2">
+				<img class="app-header-logo" :src=logo slot="logo"/>
+				<ui5-shellbar-item icon="palette" text="Theme" ref="themeChangeItem" @click="handleThemeSettingsToggle"></ui5-shellbar-item>
+				<ui5-avatar slot="profile" size="XS" initials="JD"></ui5-avatar>
 			</ui5-shellbar>
 		</header>
+
+		<ui5-tabcontainer fixed collapsed>
+			<ui5-tab text="My Todos"></ui5-tab>
+		</ui5-tabcontainer>
+
 		<section class="app-content">
 			<div class="create-todo-wrapper">
-				<ui5-input placeholder="My Todo ..." ref="todoInput" class="add-todo-element-width" id="add-input"></ui5-input>
+				<ui5-input placeholder="Type a task..." ref="todoInput" class="add-todo-element-width" id="add-input"></ui5-input>
 				<ui5-date-picker format-pattern="dd/MM/yyyy" class="add-todo-element-width" ref="todoDeadline" id="date-picker"></ui5-date-picker>
 				<ui5-button class="add-todo-element-width" ref="addButton" design="Emphasized" @click="handleAdd">Add Todo</ui5-button>
 			</div>
 
 			<div class="list-todos-wrapper">
-				<TodoList :todos="todos" @selection-change="handleDone"
-				@item-deleted="handleRemove"
-				@item-edit="handleEdit">
-				</TodoList>
+				<ui5-panel header-text="Incompleted Tasks">
+					<TodoList :todos="todos" @selection-change="handleDone"
+						@item-deleted="handleRemove"
+						@item-edit="handleEdit">
+					</TodoList>
+				</ui5-panel>
 
 				<ui5-panel header-text="Completed Tasks">
 					<TodoList :todos="doneTodos" @selection-change="handleUndone"
-					@item-deleted="handleRemove"
-					@item-edit="handleEdit">
+						@item-deleted="handleRemove"
+						@item-edit="handleEdit">
 					</TodoList>
 				</ui5-panel>
 			</div>
@@ -48,6 +59,25 @@
 				<ui5-button class="dialog-footer-btn--save" design="Emphasized" @click="saveEdits">Save</ui5-button>
 			</div>
 		</ui5-dialog>
+
+		<ui5-popover
+				ref="theme-settings-popover"
+				class="app-bar-theming-popover"
+				placement-type="Bottom"
+				horizontal-align="Right"
+				header-text="Theme"
+		>
+			<ui5-list ref={themeSelect} mode="SingleSelect" @selection-change="handleThemeChange">
+				<ui5-li icon="palette" data-theme="sap_horizon" selected>SAP Horizon Morning</ui5-li>
+				<ui5-li icon="palette" data-theme="sap_horizon_dark">SAP Horizon Evening</ui5-li>
+				<ui5-li icon="palette" data-theme="sap_horizon_hcb">SAP Horizon HCB</ui5-li>
+				<ui5-li icon="palette" data-theme="sap_horizon_hcw">SAP Horizon HCW</ui5-li>
+				<ui5-li icon="palette" data-theme="sap_fiori_3">SAP Quartz Light</ui5-li>
+				<ui5-li icon="palette" data-theme="sap_fiori_3_dark">SAP Quartz Dark</ui5-li>
+				<ui5-li icon="palette" data-theme="sap_fiori_3_hcb">SAP Quartz HCB</ui5-li>
+				<ui5-li icon="palette" data-theme="sap_fiori_3_hcw">SAP Quartz HCW</ui5-li>
+			</ui5-list>
+		</ui5-popover>
 	</div>
 </template>
 
@@ -65,9 +95,15 @@ import '@ui5/webcomponents/dist/Dialog';
 import '@ui5/webcomponents/dist/Panel';
 import '@ui5/webcomponents/dist/Label';
 import '@ui5/webcomponents/dist/TextArea';
-import '@ui5/webcomponents-fiori/dist/ShellBar';
+import "@ui5/webcomponents/dist/Popover";
+import "@ui5/webcomponents/dist/Tab";
+import "@ui5/webcomponents/dist/TabContainer";
+import "@ui5/webcomponents-fiori/dist/ShellBar";
+import "@ui5/webcomponents-fiori/dist/ShellBarItem";
+import "@ui5/webcomponents-icons/dist/palette.js";
 import "@ui5/webcomponents-fiori/dist/Assets.js";
 import './components/TodoList.vue';
+
 
 let App = Vue.component("app", {
 	data: function() {
@@ -113,7 +149,14 @@ let App = Vue.component("app", {
 		};
 	},
 	methods: {
-		handleAdd: function() {
+	handleThemeSettingsToggle: function(event) {
+		this.$refs["theme-settings-popover"].showAt(event.detail.targetRef);
+	},
+	handleThemeChange: function(event) {
+		setTheme(event.detail.selectedItems[0].getAttribute("data-theme"));
+		this.$refs["theme-settings-popover"].close();
+	},
+	handleAdd: function() {
 		this.todos = [...this.todos, {
 			text: this.$refs["todoInput"].value,
 			id: (this.todos.length + 1).toString(),
@@ -210,12 +253,15 @@ export default App;
 </script>
 
 <style>
-body {
+html, body {
+	padding: 0;
 	margin: 0;
+	height: 100%;
 }
 
 .app {
 	height: 100%;
+	background-color: var(--sapBackgroundColor);
 }
 
 .header-toolbar {
@@ -244,10 +290,14 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding-top: 0.5rem;
-	padding-bottom: 2rem;
-	border-bottom: 1px solid #b3b3b3;
+	padding: 2rem 1rem;
+	margin: 2rem 0;
 	box-sizing: border-box;
+	background-color: var(--sapObjectHeader_Background);
+}
+
+.list-todos-wrapper {
+	margin: 2rem 0;
 }
 
 .add-todo-element-width {
