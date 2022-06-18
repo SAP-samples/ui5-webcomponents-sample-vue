@@ -315,6 +315,10 @@ html, body {
 	margin: 2rem 0;
 }
 
+.li-content-actions {
+	display: flex;
+}
+
 .add-todo-element-width {
 	width: auto;
 }
