@@ -182,7 +182,6 @@ import "@ui5/webcomponents-fiori/dist/ShellBarItem";
 import "@ui5/webcomponents/dist/Tab";
 import "@ui5/webcomponents/dist/TabContainer";
 import "@ui5/webcomponents-fiori/dist/Assets.js";
-import "@ui5/webcomponents-icons/dist/palette.js";
 import '@ui5/webcomponents-icons/dist/palette.js';
 import '@ui5/webcomponents-icons/dist/settings.js';
 import '@ui5/webcomponents-icons/dist/sys-help.js';
