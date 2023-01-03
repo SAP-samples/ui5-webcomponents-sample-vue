@@ -27,7 +27,7 @@
     "@commitlint/config-conventional": "^17.0.2",
     "@vue/cli-plugin-babel": "^5.0.4",
     "@vue/cli-plugin-eslint": "^5.0.4",
-    "@vue/cli-service": "^5.0.4",
+    "@vue/cli-service": "^5.0.8",
     "eslint": "^8.17.0",
     "eslint-plugin-vue": "^9.1.1",
     "file-loader": "^6.2.0",
