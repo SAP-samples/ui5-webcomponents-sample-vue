@@ -104,7 +104,7 @@
 		</div>
 	</ui5-popover>
 
-	<ui5-dialog id="settings-dialog" header-text="Profile Settings" draggable>
+	<ui5-dialog id="settings-dialog" header-text="Profile Settings" v-bind:draggable="isDraggable()">
 		<div>
 			<div class="profile-rtl-switch centered">
 				<div class="profile-rtl-switch-title">
@@ -160,12 +160,12 @@
 </template>
 
 <script>
-import Vue from "vue";
+import { defineComponent } from 'vue';
 import logo from './assets/logo.png';
 import applyDirection from "@ui5/webcomponents-base/dist/locale/applyDirection.js";
 import '@webcomponents/custom-elements/custom-elements.min.js'
 import '@webcomponents/shadydom/shadydom.min.js'
-import {setTheme } from "@ui5/webcomponents-base/dist/config/Theme";
+import { setTheme } from "@ui5/webcomponents-base/dist/config/Theme";
 import '@ui5/webcomponents-base/dist/features/F6Navigation';
 import '@ui5/webcomponents/dist/Title';
 import '@ui5/webcomponents/dist/Input';
@@ -190,11 +190,13 @@ import '@ui5/webcomponents-icons/dist/account.js';
 import '@ui5/webcomponents-icons/dist/private.js';
 import '@ui5/webcomponents-icons/dist/loan.js';
 import '@ui5/webcomponents-icons/dist/globe.js';
-import './components/TodoList.vue';
+import TodoList from './components/TodoList.vue';
 
-
-let App = Vue.component("app", {
-	data: function() {
+export default defineComponent({
+	components: {
+		TodoList
+	},
+	data() {
 		return {
 			todos: [
 				{
@@ -361,17 +363,27 @@ let App = Vue.component("app", {
 			this.$refs["editDialog"].close();
 		},
 		hasTodos() {
-			return !this.todos.length;
+			if (this.todos.length > 0) 
+			{
+				return undefined;
+			}
+			return true;
 		},
 		hasCompletedTodos() {
-			return !this.doneTodos.length;
-		}
+			if (this.doneTodos.length > 0) 
+			{
+				return undefined;
+			}
+			return true;
+		},
+		isDraggable() {
+			return this.$attrs.hasOwnProperty('draggable') ? this.$attrs.draggable : true;
+	}
+
 	}
 });
 
 setTheme("sap_horizon");
-
-export default App;
 </script>
 
 <style>
@@ -408,7 +420,6 @@ html, body {
 }
 
 .app-content {
-	height: calc(100% - 3rem);
 	padding: 0 1rem;
 	width: calc(100% - 2rem);
 }

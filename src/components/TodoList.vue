@@ -8,12 +8,15 @@
 </template>
 
 <script>
-import Vue from "vue";
-import './TodoItem.vue';
+import { defineComponent } from "@vue/compat";
+import TodoItem from './TodoItem.vue';
 import "@ui5/webcomponents/dist/List";
 
 
-let TodoList = Vue.component('TodoList', {
+export default defineComponent({
+  components: {
+    TodoItem
+  },
   props: ["todos"],
   methods: {
     onSelectionChange(event) {
@@ -27,8 +30,6 @@ let TodoList = Vue.component('TodoList', {
     }
   }
 });
-
-export default TodoList;
 
 </script>
 

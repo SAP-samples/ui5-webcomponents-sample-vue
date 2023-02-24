@@ -1,9 +1,12 @@
-import Vue from 'vue'
-import App from './App.vue'
+import { createApp, h, configureCompat } from '@vue/compat';
+import App from './App.vue';
 
-Vue.config.productionTip = false;
-Vue.config.ignoredElements = [/^ui5-/];
+configureCompat({ 
+  RENDER_FUNCTION: false, 
+})
 
-new Vue({
-  render: h => h(App),
-}).$mount('#app');
+const app = createApp({
+  render: () => h(App),
+});
+
+app.mount('#app');
