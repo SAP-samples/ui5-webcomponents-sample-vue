@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { defineComponent } from "@vue/compat";
+import { defineComponent } from "vue";
 import TodoItem from './TodoItem.vue';
 import "@ui5/webcomponents/dist/List";
 

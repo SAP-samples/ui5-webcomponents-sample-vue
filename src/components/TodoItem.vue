@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { defineComponent } from "@vue/compat";
+import { defineComponent } from "vue";
 import "@ui5/webcomponents/dist/CustomListItem";
 
 export default defineComponent({

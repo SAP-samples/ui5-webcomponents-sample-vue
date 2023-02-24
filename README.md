@@ -22,9 +22,9 @@ This project was bootstrapped with [Vue CLI](https://cli.vuejs.org/)
     npm install
     ```
 
-1. Start a local server and run the application. (The running application can be found here: http://localhost:8080)
+1. Start a local server and run the application. (The running application can be found here: http://localhost:5173)
     ```sh
-    npm run serve
+    npm run start
     ```
 
 
@@ -49,40 +49,29 @@ Then, you can use the custom element in an HTML page:
 
 Currently Chrome, Safari, Firefox and Edge (Chromium-based) support Web Components natively.
 
-
 ## Configure Vue to work with Web Components defined outside of it
-To use Web Components in Vue Application a configuration option should be provided in the `main.js` file to tell the Vue about these components. More can be found in the documentation of [Vue.config.ignoredElements](https://vuejs.org/v2/api/#ignoredElements):
 
-**main.js**
-```js
-Vue.config.ignoredElements = [/^ui5-/];
-```
+To avoid issues, it is recommended to exclude our custom elements from component resolution by specifying `compilerOptions.isCustomElement` in our `vite.config` file.
 
+```ts
+// vite.config.js
 
-## Configure Vue Build
-When UI5 Web Components are used they include all of their translation files and CLDR data files in the application bundle.
-In order to decrease the bundle size of the application a custom Webpack configuration should be provided. 
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
 
-Create `vue.config.js` file:
-
-**vue.config.js**
-```js
-module.exports = {
-  configureWebpack: {
-    module: {
-      rules: [
-        {
-          test: [/cldr\/.*\.json$/, /i18n\/.*\.json$/],
-          loader: 'file-loader',
-          options: {
-            name: 'static/media/[name].[hash:8].[ext]',
-          },
-          type: 'javascript/auto'
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [
+    vue({
+      template: {
+        compilerOptions: {
+          // treat all tags with a "ui5-" prefix as custom elements
+          isCustomElement: tag => tag.startsWith('ui5-')
         }
-      ]
-    }
-  }
-};
+      }
+    })
+  ]
+})
 ```
 
 ### Where is the npm package?

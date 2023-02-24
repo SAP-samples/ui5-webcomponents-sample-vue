@@ -5,17 +5,12 @@ export default defineConfig({
   plugins: [vue({
     template: {
         compilerOptions: {
-          // treat all tags with a ui5- as custom elements
-          isCustomElement: tag => tag.includes('ui5-')
+          // treat all tags with a "ui5-" prefix as custom elements
+          isCustomElement: tag => tag.startsWith('ui5-')
         }
       }
   })],
   base: process.env.NODE_ENV === 'production' ? '/ui5-webcomponents-sample-vue' : '/',
-  resolve: {
-    alias: {
-      vue: '@vue/compat',
-    },
-  },
   build: {
     rollupOptions: {
       output: {

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "start": "vue-cli-service serve",
+    "start": "vite serve",
     "serve": "vite preview",
     "build": "vite build",
     "lint": "vue-cli-service lint",
@@ -17,7 +17,6 @@
     "@ui5/webcomponents-base": "^1.4.0",
     "@ui5/webcomponents-fiori": "1.4.0",
     "@ui5/webcomponents-icons": "^1.4.0",
-    "@vue/compat": "^3.2.47",
     "@webcomponents/custom-elements": "^1.3.2",
     "@webcomponents/shadydom": "^1.7.1",
     "vue": "^3.2.47",

@@ -23,14 +23,14 @@
 			</div>
 
 			<div class="list-todos-wrapper">
-				<ui5-panel class="list-todos-panel" header-text="Incompleted Tasks" :collapsed="hasTodos()">
+				<ui5-panel class="list-todos-panel" header-text="Incompleted Tasks" :collapsed="panelCollapsed()">
 					<TodoList :todos="todos" @selection-change="handleDone"
 						@item-deleted="handleRemove"
 						@item-edit="handleEdit">
 					</TodoList>
 				</ui5-panel>
 
-				<ui5-panel  class="list-todos-panel" header-text="Completed Tasks" :collapsed="hasCompletedTodos()">
+				<ui5-panel  class="list-todos-panel" header-text="Completed Tasks" :collapsed="donePanelCollapsed()">
 					<TodoList :todos="doneTodos" @selection-change="handleUndone"
 						@item-deleted="handleRemove"
 						@item-edit="handleEdit">
@@ -104,7 +104,7 @@
 		</div>
 	</ui5-popover>
 
-	<ui5-dialog id="settings-dialog" header-text="Profile Settings" v-bind:draggable="isDraggable()">
+	<ui5-dialog id="settings-dialog" header-text="Profile Settings" :draggable="true">
 		<div>
 			<div class="profile-rtl-switch centered">
 				<div class="profile-rtl-switch-title">
@@ -289,6 +289,10 @@ export default defineComponent({
 			const newlySelected = this.todos.filter(todo => {
 				return selectedId === todo.id.toString();
 			})[0];
+
+			if (typeof newlySelected === "undefined") {
+				return;
+			}
 			newlySelected.done = true;
 			this.doneTodos.push(newlySelected);
 
@@ -362,23 +366,12 @@ export default defineComponent({
 		cancelEdits() {
 			this.$refs["editDialog"].close();
 		},
-		hasTodos() {
-			if (this.todos.length > 0) 
-			{
-				return undefined;
-			}
-			return true;
+		panelCollapsed() {
+			return !this.todos.length ? true : undefined;
 		},
-		hasCompletedTodos() {
-			if (this.doneTodos.length > 0) 
-			{
-				return undefined;
-			}
-			return true;
+		donePanelCollapsed() {
+			return !this.doneTodos.length ? true : undefined;
 		},
-		isDraggable() {
-			return this.$attrs.hasOwnProperty('draggable') ? this.$attrs.draggable : true;
-	}
 
 	}
 });
