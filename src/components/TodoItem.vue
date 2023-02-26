@@ -11,10 +11,9 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
 import "@ui5/webcomponents/dist/CustomListItem";
 
-export default defineComponent({
+export default {
   props: ["todo", "datakey"],
   computed: {
     selected() {
@@ -29,7 +28,7 @@ export default defineComponent({
       this.$emit('item-deleted', { id: this.todo.id });
     }
   }
-});
+};
 
 </script>
 

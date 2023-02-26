@@ -51,7 +51,7 @@ Currently Chrome, Safari, Firefox and Edge (Chromium-based) support Web Componen
 
 ## Configure Vue to work with Web Components defined outside of it
 
-To avoid issues, it is recommended to exclude our custom elements from component resolution by specifying `compilerOptions.isCustomElement` in our `vite.config` file.
+It is recommended to exclude our custom elements from component resolution by specifying `compilerOptions.isCustomElement` in our `vite.config` file.
 
 ```ts
 // vite.config.js

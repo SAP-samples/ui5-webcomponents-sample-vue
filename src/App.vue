@@ -160,7 +160,6 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
 import logo from './assets/logo.png';
 import applyDirection from "@ui5/webcomponents-base/dist/locale/applyDirection.js";
 import '@webcomponents/custom-elements/custom-elements.min.js'
@@ -190,9 +189,10 @@ import '@ui5/webcomponents-icons/dist/account.js';
 import '@ui5/webcomponents-icons/dist/private.js';
 import '@ui5/webcomponents-icons/dist/loan.js';
 import '@ui5/webcomponents-icons/dist/globe.js';
+import '@ui5/webcomponents-theming/dist/Assets.js'
 import TodoList from './components/TodoList.vue';
 
-export default defineComponent({
+export default {
 	components: {
 		TodoList
 	},
@@ -374,7 +374,7 @@ export default defineComponent({
 		},
 
 	}
-});
+};
 
 setTheme("sap_horizon");
 </script>
