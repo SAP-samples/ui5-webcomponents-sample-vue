@@ -290,7 +290,7 @@ export default {
 				return selectedId === todo.id.toString();
 			})[0];
 
-			if (typeof newlySelected === "undefined") {
+			if (!newlySelected) {
 				return;
 			}
 			newlySelected.done = true;
