@@ -23,14 +23,14 @@
 			</div>
 
 			<div class="list-todos-wrapper">
-				<ui5-panel class="list-todos-panel" header-text="Incompleted Tasks" :collapsed="hasTodos()">
+				<ui5-panel class="list-todos-panel" header-text="Incompleted Tasks" :collapsed="panelCollapsed()">
 					<TodoList :todos="todos" @selection-change="handleDone"
 						@item-deleted="handleRemove"
 						@item-edit="handleEdit">
 					</TodoList>
 				</ui5-panel>
 
-				<ui5-panel  class="list-todos-panel" header-text="Completed Tasks" :collapsed="hasCompletedTodos()">
+				<ui5-panel  class="list-todos-panel" header-text="Completed Tasks" :collapsed="donePanelCollapsed()">
 					<TodoList :todos="doneTodos" @selection-change="handleUndone"
 						@item-deleted="handleRemove"
 						@item-edit="handleEdit">
@@ -104,7 +104,7 @@
 		</div>
 	</ui5-popover>
 
-	<ui5-dialog id="settings-dialog" header-text="Profile Settings" draggable>
+	<ui5-dialog id="settings-dialog" header-text="Profile Settings" :draggable="true">
 		<div>
 			<div class="profile-rtl-switch centered">
 				<div class="profile-rtl-switch-title">
@@ -160,12 +160,11 @@
 </template>
 
 <script>
-import Vue from "vue";
 import logo from './assets/logo.png';
 import applyDirection from "@ui5/webcomponents-base/dist/locale/applyDirection.js";
 import '@webcomponents/custom-elements/custom-elements.min.js'
 import '@webcomponents/shadydom/shadydom.min.js'
-import {setTheme } from "@ui5/webcomponents-base/dist/config/Theme";
+import { setTheme } from "@ui5/webcomponents-base/dist/config/Theme";
 import '@ui5/webcomponents-base/dist/features/F6Navigation';
 import '@ui5/webcomponents/dist/Title';
 import '@ui5/webcomponents/dist/Input';
@@ -190,11 +189,13 @@ import '@ui5/webcomponents-icons/dist/account.js';
 import '@ui5/webcomponents-icons/dist/private.js';
 import '@ui5/webcomponents-icons/dist/loan.js';
 import '@ui5/webcomponents-icons/dist/globe.js';
-import './components/TodoList.vue';
+import TodoList from './components/TodoList.vue';
 
-
-let App = Vue.component("app", {
-	data: function() {
+export default {
+	components: {
+		TodoList
+	},
+	data() {
 		return {
 			todos: [
 				{
@@ -287,6 +288,7 @@ let App = Vue.component("app", {
 			const newlySelected = this.todos.filter(todo => {
 				return selectedId === todo.id.toString();
 			})[0];
+
 			newlySelected.done = true;
 			this.doneTodos.push(newlySelected);
 
@@ -360,18 +362,17 @@ let App = Vue.component("app", {
 		cancelEdits() {
 			this.$refs["editDialog"].close();
 		},
-		hasTodos() {
-			return !this.todos.length;
+		panelCollapsed() {
+			return !this.todos.length ? true : undefined;
 		},
-		hasCompletedTodos() {
-			return !this.doneTodos.length;
-		}
+		donePanelCollapsed() {
+			return !this.doneTodos.length ? true : undefined;
+		},
+
 	}
-});
+};
 
 setTheme("sap_horizon");
-
-export default App;
 </script>
 
 <style>
@@ -408,7 +409,6 @@ html, body {
 }
 
 .app-content {
-	height: calc(100% - 3rem);
 	padding: 0 1rem;
 	width: calc(100% - 2rem);
 }

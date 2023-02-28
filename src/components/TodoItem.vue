@@ -1,5 +1,5 @@
 <template>
-  <ui5-li-custom :data-key="datakey" :selected="todo.done">
+  <ui5-li-custom :data-key="datakey" :selected="selected">
     <div class="li-content">
       <span class="li-content-text">{{todo.text}} - finish before: {{todo.deadline}}</span>
       <div class="li-content-actions">
@@ -11,11 +11,15 @@
 </template>
 
 <script>
-import Vue from "vue";
 import "@ui5/webcomponents/dist/CustomListItem";
 
-let TodoItem = Vue.component('TodoItem', {
+export default {
   props: ["todo", "datakey"],
+  computed: {
+    selected() {
+      return this.todo.done || undefined;
+    },
+  },
   methods: {
     onEditPress() {
       this.$emit('item-edit', { id: this.todo.id });
@@ -24,11 +28,10 @@ let TodoItem = Vue.component('TodoItem', {
       this.$emit('item-deleted', { id: this.todo.id });
     }
   }
-});
-
-export default TodoItem;
+};
 
 </script>
+
 
 <style>
 

@@ -1,5 +1,5 @@
 <template>
-  <ui5-list id="todo-list" mode="MultiSelect" ref="list" @selectionChange="onSelectionChange">
+  <ui5-list id="todo-list" mode="MultiSelect" ref="list">
     <TodoItem v-for="(todo) in todos" :todo="todo" :key="todo.id" :datakey="todo.id"
     @item-deleted="onItemDeleted"
     @item-edit="onItemEdit">
@@ -8,17 +8,16 @@
 </template>
 
 <script>
-import Vue from "vue";
-import './TodoItem.vue';
+import TodoItem from './TodoItem.vue';
 import "@ui5/webcomponents/dist/List";
 
 
-let TodoList = Vue.component('TodoList', {
+export default {
+  components: {
+    TodoItem
+  },
   props: ["todos"],
   methods: {
-    onSelectionChange(event) {
-      this.$emit('selection-change', event);
-    },
     onItemDeleted(event) {
       this.$emit('item-deleted', event);
     },
@@ -26,9 +25,7 @@ let TodoList = Vue.component('TodoList', {
       this.$emit('item-edit', event);
     }
   }
-});
-
-export default TodoList;
+};
 
 </script>
 
