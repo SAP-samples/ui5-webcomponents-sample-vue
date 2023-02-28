@@ -22,9 +22,9 @@ This project was bootstrapped with [Vue CLI](https://cli.vuejs.org/)
     npm install
     ```
 
-1. Start a local server and run the application. (The running application can be found here: http://localhost:4173/ui5-webcomponents-sample-vue)
+1. Start a local server and run the application. (The running application can be found here: http://localhost:5173)
     ```sh
-    npm run serve
+    npm run dev
     ```
 
 

@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "start": "vite serve",
-    "serve": "vite preview",
+    "preview": "vite preview",
     "build": "vite build",
     "lint": "eslint --ext .js, src && npm run lint:success",
     "lint:success": "echo No linting errors found.",
