@@ -189,7 +189,6 @@ import '@ui5/webcomponents-icons/dist/account.js';
 import '@ui5/webcomponents-icons/dist/private.js';
 import '@ui5/webcomponents-icons/dist/loan.js';
 import '@ui5/webcomponents-icons/dist/globe.js';
-import '@ui5/webcomponents-theming/dist/Assets.js'
 import TodoList from './components/TodoList.vue';
 
 export default {
@@ -290,9 +289,6 @@ export default {
 				return selectedId === todo.id.toString();
 			})[0];
 
-			if (!newlySelected) {
-				return;
-			}
 			newlySelected.done = true;
 			this.doneTodos.push(newlySelected);
 

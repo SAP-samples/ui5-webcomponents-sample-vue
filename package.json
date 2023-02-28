@@ -15,10 +15,9 @@
   },
   "dependencies": {
     "@ui5/webcomponents": "1.10.4",
-    "@ui5/webcomponents-base": "^1.10.4",
-    "@ui5/webcomponents-fiori": "^1.10.4",
-    "@ui5/webcomponents-icons": "^1.10.4",
-    "@ui5/webcomponents-theming": "^1.10.4",
+    "@ui5/webcomponents-base": "1.10.4",
+    "@ui5/webcomponents-fiori": "1.10.4",
+    "@ui5/webcomponents-icons": "1.10.4",
     "@webcomponents/custom-elements": "^1.3.2",
     "@webcomponents/shadydom": "^1.7.1",
     "vue": "^3.2.47"
@@ -27,27 +26,10 @@
     "@commitlint/cli": "^17.0.2",
     "@commitlint/config-conventional": "^17.0.2",
     "@vitejs/plugin-vue": "^4.0.0",
-    "autoprefixer": "^10.4.13",
     "eslint": "^8.17.0",
     "eslint-plugin-vue": "^9.1.1",
     "husky": "^8.0.0",
     "vite": "^4.1.4"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "rules": {}
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
   },
   "browserslist": [
     "> 1%",

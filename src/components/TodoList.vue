@@ -18,9 +18,6 @@ export default {
   },
   props: ["todos"],
   methods: {
-    onSelectionChange(event) {
-      this.$emit('selection-change', event);
-    },
     onItemDeleted(event) {
       this.$emit('item-deleted', event);
     },
