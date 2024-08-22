@@ -1,5 +1,5 @@
 <template>
-  <ui5-list id="todo-list" mode="MultiSelect" ref="list">
+  <ui5-list id="todo-list" selection-mode="Multiple" ref="list">
     <TodoItem v-for="(todo) in todos" :todo="todo" :key="todo.id" :datakey="todo.id"
     @item-deleted="onItemDeleted"
     @item-edit="onItemEdit">
