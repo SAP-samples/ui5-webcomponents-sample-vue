@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import "@ui5/webcomponents/dist/CustomListItem";
+import "@ui5/webcomponents/dist/ListItemCustom";
 
 export default {
   props: ["todo", "datakey"],

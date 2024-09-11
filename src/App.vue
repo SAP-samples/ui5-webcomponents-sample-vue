@@ -11,7 +11,7 @@
 			</ui5-shellbar>
 		</header>
 
-		<ui5-tabcontainer fixed collapsed>
+		<ui5-tabcontainer collapsed>
 			<ui5-tab text="My Todos"></ui5-tab>
 		</ui5-tabcontainer>
 
@@ -64,11 +64,11 @@
 		<ui5-popover
 				ref="theme-settings-popover"
 				class="app-bar-theming-popover"
-				placement-type="Bottom"
-				horizontal-align="Right"
+				placement="Bottom"
+				horizontal-align="End"
 				header-text="Theme"
 		>
-			<ui5-list ref={themeSelect} mode="SingleSelect" @selection-change="handleThemeChange">
+			<ui5-list ref={themeSelect} selection-mode="Single" @selection-change="handleThemeChange">
 				<ui5-li icon="palette" data-theme="sap_horizon" selected>SAP Horizon Morning</ui5-li>
 				<ui5-li icon="palette" data-theme="sap_horizon_dark">SAP Horizon Evening</ui5-li>
 				<ui5-li icon="palette" data-theme="sap_horizon_hcb">SAP Horizon HCB</ui5-li>
@@ -84,8 +84,8 @@
 				ref="profile-popover"
 				id="profile-pop"
 				class="app-bar-profile-popover"
-				placement-type="Bottom"
-				horizontal-align="Right"
+				placement="Bottom"
+				horizontal-align="End"
 		>
 		<div class="profile-settings">
 			<ui5-avatar size="M" initials="JD"></ui5-avatar>
@@ -96,7 +96,7 @@
 		</div>
 
 		<div class="profile-settings-list">
-			<ui5-list mode="SingleSelect" separators="None" @item-click="handleProfileSettingsSelect" ref="settings-popover">
+			<ui5-list selection-mode="Single" separators="None" @item-click="handleProfileSettingsSelect" ref="settings-popover">
 				<ui5-li icon="settings" data-key="settings">Settings</ui5-li>
 				<ui5-li icon="sys-help" data-key="help">Help</ui5-li>
 				<ui5-li icon="log" data-key="sign-out">Sign out</ui5-li>
@@ -137,7 +137,7 @@
 			<img class="app-header-logo" alt="logo" slot="logo" src="./assets/logo.png" />
 			<ui5-title level="H5">UI5 Web Components Vue Sample App</ui5-title>
 		</div>
-			
+
 
 		<p class="help-dialog-text">
 			<b>Release</b>: b225.20220729335 <br>
@@ -162,8 +162,6 @@
 <script>
 import logo from './assets/logo.png';
 import applyDirection from "@ui5/webcomponents-base/dist/locale/applyDirection.js";
-import '@webcomponents/custom-elements/custom-elements.min.js'
-import '@webcomponents/shadydom/shadydom.min.js'
 import { setTheme } from "@ui5/webcomponents-base/dist/config/Theme";
 import '@ui5/webcomponents-base/dist/features/F6Navigation';
 import '@ui5/webcomponents/dist/Title';
@@ -239,21 +237,23 @@ export default {
 	},
 	methods: {
 		handleThemeSettingsToggle: function(event) {
-			this.$refs["theme-settings-popover"].showAt(event.detail.targetRef);
+			this.$refs["theme-settings-popover"].opener = event.detail.targetRef;
+			this.$refs["theme-settings-popover"].open = true;
 		},
 		handleThemeChange: function(event) {
 			setTheme(event.detail.selectedItems[0].getAttribute("data-theme"));
-			this.$refs["theme-settings-popover"].close();
+			this.$refs["theme-settings-popover"].open = false;
 		},
 		handleProfileClick: function(event) {
-			this.$refs["profile-popover"].showAt(event.detail.targetRef);
+			this.$refs["profile-popover"].opener = event.detail.targetRef;
+			this.$refs["profile-popover"].open = true;
 		},
 		handleProfileSettingsSelect: function(event) {
 			const selectedKey = event.detail.item.getAttribute('data-key');
 			if (selectedKey === 'settings') {
-				window['settings-dialog'].show(event.detail.targetRef);
+				window['settings-dialog'].open = true;
 		 	} else if (selectedKey === 'help') {
-				window['help-dialog'].show(event.detail.targetRef);
+				window['help-dialog'].open = true;
 			}
 		},
 		handleRtlSwitchChange: function(event) {
@@ -268,10 +268,10 @@ export default {
 			}
 		},
 		handleSettingsDialogCloseButtonClick: function() {
-			window['settings-dialog'].close();
+			window['settings-dialog'].open = false;
 		},
 		handleHelpDialogCloseButtonClick: function() {
-			window['help-dialog'].close();
+			window['help-dialog'].open = false;
 		},
 		handleAdd: function() {
 			this.todos = [...this.todos, {
@@ -333,7 +333,7 @@ export default {
 			this.todoBeingEdittedDate = todoObj.deadline;
 			this.selectedEditTodo = todoObj.id;
 
-			this.$refs["editDialog"].show();
+			this.$refs["editDialog"].open = true;
 		},
 		saveEdits() {
 			const edittedText = this.$refs["titleEditInput"].value;
@@ -357,10 +357,10 @@ export default {
 			return todo;
 			});
 
-			this.$refs["editDialog"].close();
+			this.$refs["editDialog"].open = false;
 		},
 		cancelEdits() {
-			this.$refs["editDialog"].close();
+			this.$refs["editDialog"].open = false;
 		},
 		panelCollapsed() {
 			return !this.todos.length ? true : undefined;
