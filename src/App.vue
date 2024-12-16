@@ -147,7 +147,7 @@
 			<b>UI version</b>: SAP Fiori <br>
 			<b>Edition</b>: Enterprise <br>
 			<b>Admin version</b>: Vue Admin <br>
-			<hr />
+
 			<span class="help-dialog-text">For more information, please visit our <a href="https://github.com/SAP-samples/ui5-webcomponents-sample-vue" target="_blank">documentation</a>.</span>
 		</p>
 
