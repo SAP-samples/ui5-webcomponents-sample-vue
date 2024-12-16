@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
+    "start": "vite",
     "preview": "vite preview",
     "build": "vite build",
     "lint": "eslint --ext .js, src && npm run lint:success",
@@ -13,10 +14,10 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@ui5/webcomponents": "^2.2.0",
-    "@ui5/webcomponents-base": "^2.2.0",
-    "@ui5/webcomponents-fiori": "^2.2.0",
-    "@ui5/webcomponents-icons": "^2.2.0",
+    "@ui5/webcomponents": "2.6.0-rc.0",
+    "@ui5/webcomponents-base": "2.6.0-rc.0",
+    "@ui5/webcomponents-fiori": "2.6.0-rc.0",
+    "@ui5/webcomponents-icons": "2.6.0-rc.0",
     "vue": "^3.4.38"
   },
   "devDependencies": {
