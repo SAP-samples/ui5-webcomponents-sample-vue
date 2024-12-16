@@ -87,74 +87,75 @@
 				placement="Bottom"
 				horizontal-align="End"
 		>
-			<div class="profile-settings">
-				<ui5-avatar size="M" initials="JD"></ui5-avatar>
-				<div class="profile-text">
-					<ui5-title level="H3">John Doe</ui5-title>
-					<ui5-label>Vue Developer</ui5-label>
-				</div>
+		<div class="profile-settings">
+			<ui5-avatar size="M" initials="JD"></ui5-avatar>
+			<div class="profile-text">
+				<ui5-title level="H3">John Doe</ui5-title>
+				<ui5-label>Vue Developer</ui5-label>
 			</div>
+		</div>
 
-			<div class="profile-settings-list">
-				<ui5-list selection-mode="Single" separators="None" @item-click="handleProfileSettingsSelect" ref="settings-popover">
-					<ui5-li icon="settings" data-key="settings">Settings</ui5-li>
-					<ui5-li icon="sys-help" data-key="help">Help</ui5-li>
-					<ui5-li icon="log" data-key="sign-out">Sign out</ui5-li>
-				</ui5-list>
-			</div>
-		</ui5-popover>
+		<div class="profile-settings-list">
+			<ui5-list selection-mode="Single" separators="None" @item-click="handleProfileSettingsSelect" ref="settings-popover">
+				<ui5-li icon="settings" data-key="settings">Settings</ui5-li>
+				<ui5-li icon="sys-help" data-key="help">Help</ui5-li>
+				<ui5-li icon="log" data-key="sign-out">Sign out</ui5-li>
+			</ui5-list>
+		</div>
+	</ui5-popover>
 
-		<ui5-dialog id="settings-dialog" header-text="Profile Settings" :draggable="true">
-			<div>
-				<div class="profile-rtl-switch centered">
-					<div class="profile-rtl-switch-title">
-						<ui5-label class="profile-rtl-switch-text">RTL</ui5-label>
-					</div>
-					<ui5-switch @change="handleRtlSwitchChange"></ui5-switch>
-				</div>
-			</div>
-
+	<ui5-dialog id="settings-dialog" header-text="Profile Settings" :draggable="true">
+		<div>
 			<div class="profile-rtl-switch centered">
 				<div class="profile-rtl-switch-title">
-					<ui5-label class="profile-rtl-switch-text">Compact</ui5-label>
+					<ui5-label class="profile-rtl-switch-text">RTL</ui5-label>
 				</div>
-				<ui5-switch @change="handleContentDensitySwitchChange"></ui5-switch>
+				<ui5-switch @change="handleRtlSwitchChange"></ui5-switch>
 			</div>
+		</div>
 
-			<div class="dialog-button">
-				<ui5-button @click="handleSettingsDialogCloseButtonClick" design="Emphasized" >Close</ui5-button>
+		<div class="profile-rtl-switch centered">
+			<div class="profile-rtl-switch-title">
+				<ui5-label class="profile-rtl-switch-text">Compact</ui5-label>
 			</div>
-		</ui5-dialog>
+			<ui5-switch @change="handleContentDensitySwitchChange"></ui5-switch>
+		</div>
+
+		<div class="dialog-button">
+			<ui5-button @click="handleSettingsDialogCloseButtonClick" design="Emphasized" >Close</ui5-button>
+		</div>
+	</ui5-dialog>
 
 		<ui5-dialog id="help-dialog">
 
-			<div slot="header" class="help-header" id="header-title-align">
-				<ui5-icon name="sys-help"></ui5-icon>
-					Help
-			</div>
+		<div slot="header" class="help-header" id="header-title-align">
+			<ui5-icon name="sys-help"></ui5-icon>
+				Help
+		</div>
 
-			<div class="help-header" id="header-logo-align">
-				<img class="app-header-logo" alt="logo" slot="logo" src="./assets/logo.png" />
-				<ui5-title level="H5">UI5 Web Components Vue Sample App</ui5-title>
-			</div>
+		<div class="help-header" id="header-logo-align">
+			<img class="app-header-logo" alt="logo" slot="logo" src="./assets/logo.png" />
+			<ui5-title level="H5">UI5 Web Components Vue Sample App</ui5-title>
+		</div>
 
 
-			<p class="help-dialog-text">
-				<b>Release</b>: b225.20220729335 <br>
-				<b>Server</b>: pk21443x3132 <br>
-				<b>Timestamp</b>: 2022-08-18T10:29:03.159+0200 <br>
-				<b>Company ID</b>: SAP <br>
-				<b>UI version</b>: SAP Fiori <br>
-				<b>Edition</b>: Enterprise <br>
-				<b>Admin version</b>: Vue Admin <br>
-				<span class="help-dialog-text">For more information, please visit our <a href="https://github.com/SAP-samples/ui5-webcomponents-sample-vue" target="_blank">documentation</a>.</span>
-			</p>
+		<p class="help-dialog-text">
+			<b>Release</b>: b225.20220729335 <br>
+			<b>Server</b>: pk21443x3132 <br>
+			<b>Timestamp</b>: 2022-08-18T10:29:03.159+0200 <br>
+			<b>Company ID</b>: SAP <br>
+			<b>UI version</b>: SAP Fiori <br>
+			<b>Edition</b>: Enterprise <br>
+			<b>Admin version</b>: Vue Admin <br>
 
-			<div class="dialog-button">
-				<ui5-button design="Emphasized" @click="handleHelpDialogCloseButtonClick">Close</ui5-button>
-			</div>
+			<span class="help-dialog-text">For more information, please visit our <a href="https://github.com/SAP-samples/ui5-webcomponents-sample-vue" target="_blank">documentation</a>.</span>
+		</p>
 
-		</ui5-dialog>
+		<div class="dialog-button">
+			<ui5-button design="Emphasized" @click="handleHelpDialogCloseButtonClick">Close</ui5-button>
+		</div>
+
+	</ui5-dialog>
 	</div>
 </template>
 
